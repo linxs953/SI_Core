@@ -1,0 +1,7 @@
+## Append samples of your project ##
+resources:
+- lct_v1_taskidl.yaml
+- lct_v1_synchronizer.yaml
+- lct_v1_apiruntime.yaml
+- lct_v1_rpcruntime.yaml
+# +kubebuilder:scaffold:manifestskustomizesamples

@@ -1,0 +1,27 @@
+# permissions for end users to edit synchronizers.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  labels:
+    app.kubernetes.io/name: lctcluster
+    app.kubernetes.io/managed-by: kustomize
+  name: synchronizer-editor-role
+rules:
+- apiGroups:
+  - lct.test.lct
+  resources:
+  - synchronizers
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - lct.test.lct
+  resources:
+  - synchronizers/status
+  verbs:
+  - get

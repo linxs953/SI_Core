@@ -1,0 +1,27 @@
+# permissions for end users to edit apiruntimes.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  labels:
+    app.kubernetes.io/name: lctcluster
+    app.kubernetes.io/managed-by: kustomize
+  name: apiruntime-editor-role
+rules:
+- apiGroups:
+  - lct.test.lct
+  resources:
+  - apiruntimes
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - lct.test.lct
+  resources:
+  - apiruntimes/status
+  verbs:
+  - get

@@ -1,0 +1,9 @@
+apiVersion: lct.test.lct/v1
+kind: Synchronizer
+metadata:
+  labels:
+    app.kubernetes.io/name: lctcluster
+    app.kubernetes.io/managed-by: kustomize
+  name: synchronizer-sample
+spec:
+  # TODO(user): Add fields here

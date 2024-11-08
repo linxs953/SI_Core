@@ -1,0 +1,23 @@
+# permissions for end users to view apiruntimes.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  labels:
+    app.kubernetes.io/name: lctcluster
+    app.kubernetes.io/managed-by: kustomize
+  name: apiruntime-viewer-role
+rules:
+- apiGroups:
+  - lct.test.lct
+  resources:
+  - apiruntimes
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - lct.test.lct
+  resources:
+  - apiruntimes/status
+  verbs:
+  - get

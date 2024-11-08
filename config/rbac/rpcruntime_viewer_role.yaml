@@ -1,0 +1,23 @@
+# permissions for end users to view rpcruntimes.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  labels:
+    app.kubernetes.io/name: lctcluster
+    app.kubernetes.io/managed-by: kustomize
+  name: rpcruntime-viewer-role
+rules:
+- apiGroups:
+  - lct.test.lct
+  resources:
+  - rpcruntimes
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - lct.test.lct
+  resources:
+  - rpcruntimes/status
+  verbs:
+  - get

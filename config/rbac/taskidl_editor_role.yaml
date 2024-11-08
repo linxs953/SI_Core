@@ -1,0 +1,27 @@
+# permissions for end users to edit taskidls.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  labels:
+    app.kubernetes.io/name: lctcluster
+    app.kubernetes.io/managed-by: kustomize
+  name: taskidl-editor-role
+rules:
+- apiGroups:
+  - lct.test.lct
+  resources:
+  - taskidls
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - lct.test.lct
+  resources:
+  - taskidls/status
+  verbs:
+  - get
