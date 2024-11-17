@@ -2,7 +2,7 @@
 
 <div align="center">
 
-[![Go Report Card](https://goreportcard.com/badge/github.com/yourusername/starinspection)](https://goreportcard.com/report/github.com/yourusername/starinspection) [![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](LICENSE)  [![Go Version](https://img.shields.io/github/go-mod/go-version/linxs953/SI_Core)](go.mod)
+[![Go Report Card](https://goreportcard.com/badge/github.com/linxs953/SI_Core)](https://goreportcard.com/report/github.com/linxs953/SI_Core) [![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](LICENSE)  [![Go Version](https://img.shields.io/github/go-mod/go-version/linxs953/SI_Core)](go.mod)
 
 StarInspection Core 是一个强大的分布式任务调度和执行引擎，为大规模计算任务提供可靠的解决方案。
 
