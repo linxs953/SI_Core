@@ -1,0 +1,4 @@
+## Append samples of your project ##
+resources:
+- lct_v1_taskdefine.yaml
+# +kubebuilder:scaffold:manifestskustomizesamples
