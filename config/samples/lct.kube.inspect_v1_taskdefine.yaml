@@ -1,0 +1,16 @@
+apiVersion: lct.kube.inspect/v1
+kind: TaskDefine
+metadata:
+  name: taskdefine-sample
+spec:
+  idlType: "2"
+  idlCode: "example-idl-001"
+  idlName: "ExampleService"
+  idlVersion: "v1.0.0"
+  relatedImage:
+    builder: "example-builder"
+    namespace: "default"
+    version: "1.0.0"
+  definition:
+    customField1: "value1"
+    customField2: "value3"

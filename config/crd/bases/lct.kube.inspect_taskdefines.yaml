@@ -1,0 +1,145 @@
+---
+apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+metadata:
+  annotations:
+    controller-gen.kubebuilder.io/version: v0.16.4
+  name: taskdefines.lct.kube.inspect
+spec:
+  group: lct.kube.inspect
+  names:
+    kind: TaskDefine
+    listKind: TaskDefineList
+    plural: taskdefines
+    shortNames:
+    - td
+    singular: taskdefine
+  scope: Namespaced
+  versions:
+  - additionalPrinterColumns:
+    - jsonPath: .status.state
+      name: State
+      type: string
+    - jsonPath: .metadata.creationTimestamp
+      name: Age
+      type: date
+    name: v1
+    schema:
+      openAPIV3Schema:
+        description: TaskDefine is the Schema for the taskdefines API
+        properties:
+          apiVersion:
+            description: |-
+              APIVersion defines the versioned schema of this representation of an object.
+              Servers should convert recognized schemas to the latest internal value, and
+              may reject unrecognized values.
+              More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
+            type: string
+          kind:
+            description: |-
+              Kind is a string value representing the REST resource this object represents.
+              Servers may infer this from the endpoint the client submits requests to.
+              Cannot be updated.
+              In CamelCase.
+              More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
+            type: string
+          metadata:
+            type: object
+          spec:
+            description: TaskDefineSpec defines the desired state of TaskDefine
+            properties:
+              definition:
+                description: Definition contains user-defined task configuration
+                type: string
+              idlCode:
+                description: IDLCode contains the IDL id
+                type: string
+              idlName:
+                description: IDLName specifies the name of the IDL
+                type: string
+              idlType:
+                description: IDLType specifies the type of the IDL (1-同步器，2-api，3-UI)
+                type: string
+              idlVersion:
+                description: IDLVersion specifies the version of the IDL
+                type: string
+              relatedImage:
+                description: RelatedImage specifies the image build configuration
+                properties:
+                  builder:
+                    description: Builder specifies the ImageBuild object name
+                    type: string
+                  digest:
+                    description: Digest contains the image digest information
+                    type: string
+                  namespace:
+                    default: default
+                    description: Namespace specifies the ImageBuild object namespace
+                    type: string
+                  version:
+                    description: Version specifies the ImageBuild version
+                    type: string
+                type: object
+            type: object
+          status:
+            description: TaskDefineStatus defines the observed state of TaskDefine
+            properties:
+              build:
+                description: Build contains information about the latest build
+                properties:
+                  branch:
+                    description: Branch contains the git branch
+                    type: string
+                  image:
+                    description: Image contains the full image reference
+                    type: string
+                  repo:
+                    description: Repo contains the repository URL
+                    type: string
+                  time:
+                    description: Time is the timestamp of the build
+                    type: string
+                type: object
+              image:
+                description: Image contains information from the associated ImageBuild
+                properties:
+                  digest:
+                    description: Digest contains the image digest value
+                    type: string
+                  pullString:
+                    description: PullString contains the complete image pull string
+                    type: string
+                  repository:
+                    description: Repository contains the full repository URL
+                    type: string
+                  tag:
+                    description: Tag contains the image tag
+                    type: string
+                type: object
+              lastUpdateTime:
+                description: LastUpdateTime is the timestamp of the last image info
+                  update
+                format: date-time
+                type: string
+              lastUpdated:
+                description: LastUpdated is the timestamp of the last status update
+                type: string
+              message:
+                description: Message provides additional information about the current
+                  state
+                type: string
+              state:
+                description: State represents the current state of the TaskDefine
+                enum:
+                - Pending
+                - Building
+                - Ready
+                - Failed
+                - Invalid
+                type: string
+            type: object
+        type: object
+    served: true
+    storage: true
+    subresources:
+      status: {}

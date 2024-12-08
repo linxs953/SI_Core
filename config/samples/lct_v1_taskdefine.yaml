@@ -1,0 +1,11 @@
+apiVersion: lct.kube.inspect/v1
+kind: TaskDefine
+metadata:
+  labels:
+    app.kubernetes.io/name: cluster
+    app.kubernetes.io/managed-by: kustomize
+  name: taskdefine-sample
+spec:
+  idlName: idl-name
+  idlType: idl-type
+  idlVersion: idl-version
